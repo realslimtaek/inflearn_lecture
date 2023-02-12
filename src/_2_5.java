@@ -14,18 +14,16 @@ public class _2_5 {
 
     public static int solution(int num){
         int answer = 0;
+        int[] list = new int[num+1];
 
         for(int i = 2; i<=num; i++){
-            for(int j = 2; j<=i; j++){
-                if(Objects.equals(i,j)) {
-                    answer++;
+            if(list[i] == 0) {
+                answer++;
+                for(int j = i; j<=num; j=j+i){
+                    list[j]=1;
                 }
-                if(i%j == 0) break;
             }
         }
-
-
-
         return answer;
     }
 }
