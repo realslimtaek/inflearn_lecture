@@ -19,28 +19,28 @@ public class _2_6 {
 
     public static String solution(String[] list){
         String answer = "";
-        boolean isPrime = true;
 
         for(String i : list){
             StringBuilder sb = new StringBuilder(i);
 
-            int asdf = Integer.parseInt(sb.reverse().toString());
+            int reverse = Integer.parseInt(sb.reverse().toString());
 
-            if(asdf < 2 ) continue;
-
-            for(int j = 2; j<asdf; j++){
-                if(asdf % j == 0) {
-                    isPrime = false;
-                    break;
-                }
+            if(isPrime(reverse)){
+                answer += reverse + " ";
             }
-
-            if(isPrime){
-                answer += asdf + " ";
-            }
-            isPrime = true;
 
         }
         return answer;
+    }
+
+    public static Boolean isPrime(int num){
+        if(num < 2 ) return false;
+
+        for(int j = 2; j<num; j++){
+            if(num % j == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
