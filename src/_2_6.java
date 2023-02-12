@@ -4,9 +4,7 @@ public class _2_6 {
 
     public static void main(String[] args) throws Exception{
 
-        //asdf
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        Scanner sc = new Scanner(System.in);
 
         int num = Integer.parseInt(br.readLine());
 
