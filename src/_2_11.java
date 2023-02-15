@@ -20,33 +20,26 @@ public class _2_11 {
     }
 
     public static int solution(int[][] list,int num){
-        int answer = 0;
-        int[] list_answer = new int[num];
-        int[] check_list = new int[num];
-        Arrays.fill(check_list,0);
         int winner = 1;
+        int max = 0;
 
-
-        for(int j = 0; j< num; j++){
-            for(int i = 0; i < 5; i++){
-                for(int k = 0; k<num; k++){
-                    if(Objects.equals(j,k)) continue;
-                    if(Objects.equals(list[j][i], list[k][i]))
-                        check_list[k] = 1;
+        for(int i = 0; i< num; i++){
+            //i번학생과
+            int count = 0;
+            for(int j = 0; j < num; j++){
+                //j번학생의
+                for(int k = 0; k<5; k++){
+                    //k학년 비교
+                    if(Objects.equals(list[i][k], list[j][k])) {
+                        count++;
+                        break;
+                    }
                 }
             }
-            for(int i : check_list)
-                if(Objects.equals(i,1))
-                    answer++;
-            list_answer[j] = answer;
-            answer = 0;
-            Arrays.fill(check_list,0);
-        }
-
-        for(int i = 0; i<list_answer.length; i++){
-            if(answer < list_answer[i]) {
-                answer = list_answer[i];
+            if(count>max){
+                max = count;
                 winner = i+1;
+
             }
         }
         return winner;
