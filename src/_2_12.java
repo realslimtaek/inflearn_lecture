@@ -2,6 +2,8 @@ import java.util.*;
 import java.io.*;
 public class _2_12 {
 
+    //그래프 인접행렬
+
     public static void main(String[] args) throws Exception{
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
