@@ -10,28 +10,36 @@ public class _3_5 {
         System.out.println(solution(n));
     }
 
+//    public static int solution(int n){
+//        int answer = 0;
+//        int rt = n/2+1;
+//        int lt = rt - 1;
+//        int sum = rt;
+//        while(rt > 3){
+//            sum += lt;
+//            if(sum == n){
+//                answer++;
+//                sum = --rt;
+//                lt = rt-1;
+//                continue;
+//            }
+//            if(sum>n){
+//                sum = --rt;
+//                lt = rt-1;
+//                continue;
+//            }
+//                lt--;
+//        }
+//        return answer;
+//    }
     public static int solution(int n){
-        int answer = 0;
-        int rt = n/2+1;
-        int lt = rt - 1;
-        int sum = rt;
-        while(rt > 3){
-            sum += lt;
-            if(sum == n){
-                answer++;
-                sum = --rt;
-                lt = rt-1;
-                continue;
-            }
-            if(sum>n){
-                sum = --rt;
-                lt = rt-1;
-                continue;
-            }
-                lt--;
-        }
-
-
+       int answer = 0, cnt = 1;
+       n--;
+       while(n>0){
+           cnt++;
+           n= n-cnt;
+           if(n%cnt == 0) answer++;
+       }
         return answer;
     }
 }
