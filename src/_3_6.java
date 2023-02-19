@@ -25,6 +25,7 @@ public class _3_6 {
         while(pl < n-answer){
             int cnt = 0;
             int p0 = 0;
+            int temp = 0;
             for(int i = pl; i<n; i++){
                 if(list[i] == 1){
                     cnt++;
@@ -32,10 +33,12 @@ public class _3_6 {
                 }
                 if(list[i] == 0){
                     if(p0 < m){
+                        temp = i;
                         p0++;
                         cnt++;
                         continue;
                     }
+                    i = temp;
                     break;
                 }
             }
