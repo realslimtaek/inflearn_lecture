@@ -14,19 +14,19 @@ public class _4_1  {
     public static String solution(int n, String s){
         String answer = "";
         int count = 0;
-        HashMap<Character, Integer> asdf = new HashMap<>(n);
+        HashMap<Character, Integer> hash = new HashMap<>(n);
 
         for(char temp : s.toCharArray()){
 
-            if(!asdf.containsKey(temp)){
-                asdf.put(temp,1);
+            if(!hash.containsKey(temp)){
+                hash.put(temp,1);
                 continue;
             }
-            asdf.put(temp,asdf.get(temp) + 1);
+            hash.put(temp,hash.get(temp) + 1);
 
-            if(asdf.get(temp) > count){
+            if(hash.get(temp) > count){
                 answer = Character.toString(temp);
-                count = asdf.get(temp);
+                count = hash.get(temp);
             }
         }
 
