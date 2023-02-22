@@ -17,12 +17,7 @@ public class _4_1  {
         HashMap<Character, Integer> hash = new HashMap<>(n);
 
         for(char temp : s.toCharArray()){
-
-            if(!hash.containsKey(temp)){
-                hash.put(temp,1);
-                continue;
-            }
-            hash.put(temp,hash.get(temp) + 1);
+                hash.put(temp,hash.getOrDefault(temp,0)+1);
 
             if(hash.get(temp) > count){
                 answer = Character.toString(temp);
