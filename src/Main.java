@@ -6,14 +6,12 @@ class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int a = Integer.parseInt(br.readLine());
-        String[] list = new String[a];
+        while(true){
+            for(int i = 0; i <100; i++){
+                System.out.println("gd");
+                if(i>10) break;
 
-        for(int i = 0; i<a; i++){
-            StringBuilder tmp = new StringBuilder(br.readLine());
-            tmp.reverse();
-            list[i] = tmp.toString();
-            System.out.println(list[i]);
+            }
         }
     }
 }
