@@ -28,26 +28,18 @@ public class _5_3 {
     public static int solution(int N){
         int answer = 0;
         Stack<Integer> stack = new Stack<>();
-        int l = 0;
-        int k = 0;
         for(int i : input){
             for(int j = 0; j<N; j++) {
                 if (arr[j][i-1] != 0) {
-                    stack.push(arr[j][i-1]);
-                    k = arr[j][i-1];
+                    int k = arr[j][i-1];
                     arr[j][i-1] = 0;
+                    if(!stack.isEmpty() && k == stack.peek()){
+                        stack.pop();
+                        answer++;
+                    }else stack.push(k);
                     break;
                 }
-                k = 0;
             }
-            if(l==k){
-                stack.pop();stack.pop();
-                answer++;
-                l = stack.peek();
-                k=0;
-                continue;
-            }
-            l = k;
 
         }
         return answer*2;
