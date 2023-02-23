@@ -8,24 +8,33 @@ public class _4_5 {
         int n = sc.nextInt();
         int k = sc.nextInt();
 
-        ArrayList<Integer> list = new ArrayList<>();
         int[] arr = new int[n];
         for(int i = 0; i < n; i++){
 //            list.add(sc.nextInt());
             arr[i] = sc.nextInt();
         }
 
-        Collections.sort(list);
         Arrays.sort(arr);
 
+        System.out.println(solution(arr, n , k));
+    }
 
+    public static int solution(int[] arr, int n, int k){
 
-        if(k<=n){
-            System.out.println(arr[k-1]);
+        TreeSet<Integer> Tset = new TreeSet<>(Collections.reverseOrder());
+        for(int i = 0; i<n-2; i++){
+            for(int j = i+1; j<n-1; j++){
+                for(int l = j+1; l<n; l++){
+                    Tset.add(arr[i]+arr[j]+arr[l]);
+                }
+            }
         }
-        else{
-            System.out.println("-1");
+        int cnt = 0;
+        for(int x : Tset){
+            cnt++;
+            if(cnt==k) return x;
         }
 
+        return -1;
     }
 }
