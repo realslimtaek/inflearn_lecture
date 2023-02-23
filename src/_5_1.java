@@ -22,6 +22,7 @@ public class _5_1 {
                 stack.pop();
             }
         }
+//asdf
 
         return "YES";
     }
