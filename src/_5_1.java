@@ -13,16 +13,16 @@ public class _5_1 {
     }
 
     public static String solution(String str){
-        int cnt = 0;
-        for (char c : str.toCharArray()) {
-            if (cnt < 0) return "NO";
-            if (Objects.equals(Character.toString(c), ")")) {
-                cnt--;
-                continue;
+        Stack<Character> stack = new Stack<>();
+        for(char x : str.toCharArray()){
+            if (x == '(')stack.push(x);
+            if (x == ')') {
+                if(stack.isEmpty())
+                    return "NO";
+                stack.pop();
             }
-            cnt++;
         }
-        return "YES";
 
+        return "YES";
     }
 }
