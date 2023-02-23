@@ -13,35 +13,22 @@ public class _5_2 {
     }
 
     public static String solution(String str){
-        StringBuilder ans = new StringBuilder();
-        char[] arr = str.toCharArray();
+        Stack<Character> stack = new Stack<>();
+        StringBuilder sb = new StringBuilder();
 
-        ArrayList<Integer> list1 = new ArrayList<>();
-        ArrayList<Integer> list2 = new ArrayList<>();
-        int[] intlist = new int[str.length()];
+        for(char ch : str.toCharArray()){
 
-        for(int i = 0; i<arr.length; i++){
-            if(Objects.equals(Character.toString(arr[i]), "(")){
-                list1.add(i);
+            if(ch == ')'){
+                while(stack.pop() != '(');
                 continue;
             }
-            if(Objects.equals(Character.toString(arr[i]), ")")){
-                list2.add(i);
-            }
-
-            if(list1.size() != 0 &&list1.size() == list2.size()){
-                for(int j = list1.get(0); j<=i; j++){
-                    intlist[j] = 1;
-                }
-                list1.clear();
-                list2.clear();
-            }
+            stack.push(ch);
+        }
+        for (char character : stack) {
+            sb.append(character);
         }
 
-        for(int i = 0; i<arr.length; i++){
-            if(intlist[i] == 0)
-                ans.append(arr[i]);
-        }
-        return ans.toString();
+
+        return sb.toString();
     }
 }
