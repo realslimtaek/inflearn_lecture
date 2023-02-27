@@ -15,7 +15,7 @@ public class _6_2 {
     }
 
     public static int[] solution(int n, int[] arr){
-        for(int i = n-1; i>=0; i--){
+        for(int i = n-1; i>0; i--){
             for(int j = 0; j<i; j++){
                 if(arr[j] > arr[j+1]){
                     int temp = arr[j];
