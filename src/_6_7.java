@@ -5,20 +5,28 @@ public class _6_7 {
         Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();
-        int[][] arr = new int[n][2];
+        ArrayList<Point> list = new ArrayList<>();
 
         for(int i = 0; i<n; i++){
-            for(int j =0; j<2; j++){
-                arr[i][j] = sc.nextInt();
-            }
+            list.add(new Point(sc.nextInt(),sc.nextInt()));
         }
-        Arrays.sort(arr, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                return o1[0]!=o2[0] ? o1[0]-o2[0] : o1[1]-o2[1]; // 첫번째 기준 오름차순 > 두번째 기준 오름차순  : {1,30}{2,10}{3,50}{4,20}{5,40}{6,10}{6,20}{6,30}{6,40}{6,50}
-                //return o1[0]!=o2[0] ? o1[0]-o2[0] : o2[1]-o1[1]; // 첫번째 기준 오름차순 > 두번째 기준 내림차순  : {1,30}{2,10}{3,50}{4,20}{5,40}{6,50}{6,40}{6,30}{6,20}{6,10}
-            }
-        });
-        System.out.println(Arrays.deepToString(arr));
+        Collections.sort(list);
+        for(Point p : list){
+            System.out.println(p.x + " "+ p.y);
+        }
+    }
+}
+
+class Point implements Comparable<Point>{
+    public int x , y;
+    Point(int n, int m){
+        this.x = n;
+        this.y = m;
+    }
+
+    @Override
+    public int compareTo(Point o) {
+        if(this.x == o.x) return this.y - o.y;
+        else return this.x - o.x;
     }
 }
