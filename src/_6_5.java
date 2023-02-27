@@ -6,37 +6,21 @@ public class _6_5 {
 
         int n = sc.nextInt();
 
-//        ArrayList<Number> list = new ArrayList<>();
-        int[] arr = new int[n];
+        HashMap<Integer,Integer> hashmap = new HashMap<>();
+
+        String answer = "U";
 
         for(int i = 0; i<n; i++){
             int a = sc.nextInt();
-//            list.add(new Number(a, 0));
-            arr[i] = a;
-
+            if(!hashmap.containsKey(a)){
+                hashmap.put(a,hashmap.getOrDefault(a,0)+1);
+            } else{
+                answer  = "D";
+                break;
+            }
         }
+        System.out.println(answer);
 
-        System.out.println(solution(arr));
-    }
-
-    public static String solution(int[] arr){
-
-        int[] unique = Arrays.stream(arr).distinct().toArray();
-
-        if(unique.length == arr.length)
-            return "U";
-
-        return "D";
-    }
-}
-
-class Number{
-
-    int num;
-    int cnt;
-
-    public Number(int num, int cnt){
-        this.num = num;
-        this.cnt = cnt;
+//        System.out.println(solution(arr));
     }
 }
