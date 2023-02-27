@@ -10,28 +10,26 @@ public class _5_8 {
         int m = sc.nextInt();
 
         int[] d = new int[n];
-        int[] f = new int[n];
-        Queue<Integer> q = new LinkedList<>();
+        Queue<Person> q = new LinkedList<>();
         for(int i = 0; i<n; i++){
             int a = sc.nextInt();
             d[i] = a;
-            f[i] = a;
-            q.offer(i);
+            q.offer(new Person(i,a));
         }
         Arrays.sort(d);
 
-        System.out.println(solution(n,f,m,d,q));
+        System.out.println(solution(n,m,d,q));
 
     }
-    public static int solution(int n, int[] f, int m, int[]d, Queue<Integer> q){
+    public static int solution(int n, int m, int[]d, Queue<Person> q){
         int answer = 1;
         int i = n-1;
         while(q.size()!= 0){
-            if(f[q.peek()] != d[i]){
+            if(q.peek().danger < d[i]){
                 q.offer(q.poll());
                 continue;
             }
-            if(q.peek() == m) {
+            if(q.peek().id == m){
                 break;
             }
             q.poll();
@@ -42,5 +40,13 @@ public class _5_8 {
 
 
         return answer;
+    }
+}
+class Person{
+    int id;
+    int danger;
+    public Person(int id, int danger){
+        this.id=id;
+        this.danger = danger;
     }
 }
