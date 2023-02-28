@@ -24,16 +24,14 @@ public class _6_8 {
         int left = 0;
         int right = arr.length - 1;
         while(left <= right){
+
             mid = (left+right)/2;
+
+            if(arr[mid] == m) break;
+
             if(arr[mid] > m){
                 right = mid;
-                continue;
-            }
-            if(arr[mid] < m){
-                left = mid;
-                continue;
-            }
-            return mid;
+            } else left = mid;
         }
         return mid;
     }
