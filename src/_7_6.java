@@ -1,17 +1,6 @@
 import java.util.*;
-class Node2{
-    static int data;
-    Node2 lt, rt;
-
-    public Node2(int val){
-        data = val;
-        lt = rt = null;
-    }
-
-}
 public class _7_6 {
 
-    Node2 root;
     static int[] check;
     static int n;
 
@@ -39,6 +28,5 @@ public class _7_6 {
             check[L] = 0;
             recursive(L+1);
         }
-
     }
 }
