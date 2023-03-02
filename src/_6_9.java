@@ -1,5 +1,5 @@
 import java.util.*;
-public class _6_9 {
+public class _6_9{
 
     public static void main(String[] args) {
 
@@ -9,37 +9,41 @@ public class _6_9 {
         int m = sc.nextInt();
 
         int[] arr = new int[n];
-        int cnt = 0;
         for(int i = 0; i<n; i++){
-            int a = sc.nextInt();
-            cnt += a;
-            arr[i] = a;
+            arr[i] = sc.nextInt();
         }
-        System.out.println(solution(m,arr, cnt));
+
+        System.out.println(solution(m, arr));
     }
-    public static int solution(int m, int[] arr, int cnt){
-        int left = Arrays.stream(arr).max().getAsInt();
-        int right = cnt;
+
+    public static int solution(int m, int[] arr){
         int answer = 0;
-        while(left <= right) {
-            int mid = (left + right) / 2;
-            if(count(arr,mid) <= m){
+        int left = Arrays.stream(arr).min().getAsInt();
+        int right = Arrays.stream(arr).sum();
+
+        while(left <= right){
+            int mid = (left+right)/2;
+            if(count(arr, mid) >= m){
                 answer = mid;
-                right = mid -1;
-            } else left = mid + 1;
+                left = mid+1;
+            } else{
+                right = mid-1;
+            }
         }
         return answer;
     }
-    public static int count(int[] arr, int capacity){
-        int cnt = 1, sum = 0;
 
-        for(int x : arr){
-            if(sum+x > capacity){
+    public static int count(int[] arr, int mid){
+        int sum = 0;
+        int cnt = 0;
+        for(int i = 0; i<arr.length; i++){
+            if(sum + arr[i] >= mid){
                 cnt++;
-                sum = x;
-            } else sum += x;
+                sum = arr[i];
+            } else {
+                sum += arr[i];
+            }
         }
         return cnt;
-
     }
 }
