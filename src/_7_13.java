@@ -20,12 +20,17 @@ public class _7_13 {
             graph[a][b] = true;
         }
         boolean[] isVisit = new boolean[N+1];
-//        my_solving(1, isVisit);
+        my_solving(1, isVisit);
+        for(int i= 2; i<=N; i++){
+            System.out.println(i +" : "+answer[i]);
+        }
+        Arrays.fill(isVisit,false);
+        Arrays.fill(answer, N);
+        cnt = 0;
         BFS();
         for(int i= 2; i<=N; i++){
             System.out.println(i +" : "+answer[i]);
         }
-
     }
     public static void my_solving(int n, boolean[] isVisit){
         cnt++;
