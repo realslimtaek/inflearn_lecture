@@ -10,12 +10,12 @@ class Node3{
     }
 }
 
-public class _7_9 {
+public class _7_9_7_10 {
     Node3 root;
 
     public static void main(String[] args) {
 
-        _7_9 tree = new _7_9();
+        _7_9_7_10 tree = new _7_9_7_10();
         tree.root = new Node3(1);
         tree.root.lt = new Node3(2);
         tree.root.rt = new Node3(3);
